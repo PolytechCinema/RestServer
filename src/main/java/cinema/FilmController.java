@@ -38,7 +38,7 @@ public class FilmController {
     }
 
     @GetMapping(path="/")
-    public @ResponseBody Iterable<Film> getAllActeurs() {
+    public @ResponseBody Iterable<Film> getAllFilms() {
         // This returns a JSON or XML with the users
         return filmRepository.findAll();
     }
@@ -46,7 +46,7 @@ public class FilmController {
 
 
     @GetMapping(path="/{id}")
-    public ResponseEntity<?> getSingleActeur(@PathVariable("id") long id) {
+    public ResponseEntity<?> getSingleFilm(@PathVariable("id") long id) {
         logger.info("Fetching Film with id {}", id);
         Film f = filmRepository.findOne(id);
         if(f == null){
@@ -57,7 +57,7 @@ public class FilmController {
     }
 
     @PutMapping(path="/{id}") // Map ONLY PUT Requests
-    public ResponseEntity<?> updateActeur (@RequestBody Film film, @PathVariable("id") long id) {
+    public ResponseEntity<?> updateFilm (@RequestBody Film film, @PathVariable("id") long id) {
         logger.info("update film id {}", id);
         Film currentFilm = filmRepository.findOne(id);
         if(currentFilm == null){
@@ -72,7 +72,7 @@ public class FilmController {
     }
 
     @DeleteMapping(path="/{id}")
-    public ResponseEntity<?> deleteSingleActeur(@PathVariable("id") long id) {
+    public ResponseEntity<?> deleteSingleFilm(@PathVariable("id") long id) {
         logger.info("deleting Film with id {}", id);
         Film f = filmRepository.findOne(id);
         if(f == null){
