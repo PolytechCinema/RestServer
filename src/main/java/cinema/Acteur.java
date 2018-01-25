@@ -21,11 +21,11 @@ public class Acteur {
     @Column(name = "prenact")
     private String prenom;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+1")
     @Column(name = "datenaiss")
     private Date dateNaiss;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+1")
     @Column(name = "datedeces")
     private Date dateDeces;
 
